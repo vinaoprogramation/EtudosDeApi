@@ -1,20 +1,14 @@
 import React from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import estilos from "./estilos";
-
+import useUsuarios from "../../useUsuarios";
 export default function Principal({ navigation }) {
-  return (
-    <View>
-      <Text style={estilos.texto}>Tela Inicial</Text>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate('Login')
-        }}
+  const sair = useUsuarios((state) => state.sair)
 
-        style={estilos.botao}
-      >
-        <Text>Entrar</Text>
-      </TouchableOpacity>
+  return (
+    <View style={estilos.fundo}>
+      <Text style={estilos.texto}>Tela Inicial</Text>
+
 
 
       <TouchableOpacity
@@ -24,7 +18,7 @@ export default function Principal({ navigation }) {
 
         style={estilos.botao}
       >
-        <Text>Perfil</Text>
+        <Text style={estilos.textoBotao}>PERFIL</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
@@ -34,7 +28,7 @@ export default function Principal({ navigation }) {
 
         style={estilos.botao}
       >
-        <Text>Produtos</Text>
+        <Text style={estilos.textoBotao}>PRODUTOS</Text>
       </TouchableOpacity>
 
 
@@ -46,7 +40,7 @@ export default function Principal({ navigation }) {
 
         style={estilos.botao}
       >
-        <Text>Administração</Text>
+        <Text style={estilos.textoBotao}>ADMINISTRAÇÃO</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
@@ -55,9 +49,22 @@ export default function Principal({ navigation }) {
         }}
         style={estilos.botao}
       >
-        <Text>Minhas Compras</Text>
+        <Text style={estilos.textoBotao}>MINHAS COMPRAS</Text>
 
       </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          sair()
+          navigation.navigate('Login')
+
+        }}
+
+        style={estilos.botao}
+      >
+        <Text style={estilos.textoBotao}>SAIR</Text>
+      </TouchableOpacity>
+
 
     </View>
   )

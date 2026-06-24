@@ -21,6 +21,17 @@ export default function Administracao({navigation}) {
       </TouchableOpacity>
 
 
+      <TouchableOpacity
+      onPress={() => {
+        navigation.navigate('StatusCompra');
+      }}
+
+      style={estilos.botao}
+      >
+
+        <Text>Alterar Status de uma compra</Text>
+      </TouchableOpacity>
+
 
       <TouchableOpacity
       onPress={() => {

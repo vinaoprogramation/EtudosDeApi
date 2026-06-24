@@ -1,9 +1,11 @@
-import React,{useState, useEffect} from "react";
-import { Text, View, TouchableOpacity, TextInput } from "react-native";
+import React, { useState, useEffect } from "react";
+import { Text, View, TouchableOpacity, TextInput, Image } from "react-native";
 import estilos from "./estilos";
 import useUsuarios from "../../useUsuarios";
 
-export default function Login({navigation}){
+import logo from "../../../../assets/logo.png"
+
+export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
@@ -12,31 +14,34 @@ export default function Login({navigation}){
 
 
 
+
   useEffect(() => {
-    if(logado){
+    if (logado) {
       navigation.navigate('Principal')
     }
   }, [logado])
 
-  return(
-    <View>
-      <Text style={estilos.texto}>Login</Text>
+  return (
+    <View style={estilos.fundo}>
+      <Text></Text>
+      <Image
+        source={logo}
+        style={estilos.imagem}
+      />
 
-            <TextInput
-        placeholder="Email"
+      <TextInput
+        placeholder="exemplo@gmail.com"
         value={email}
         onChangeText={setEmail}
         style={estilos.input}
       />
 
       <TextInput
-        placeholder="Senha"
+        placeholder="senhaExemplo@123"
         value={senha}
         onChangeText={setSenha}
         style={estilos.input}
       />
-
-
 
       <TouchableOpacity
         onPress={() => {
@@ -46,8 +51,10 @@ export default function Login({navigation}){
 
         style={estilos.botao}
       >
-        <Text>Entrar</Text>
+        <Text style={estilos.textoBotao}>FAÇA LOGIN</Text>
       </TouchableOpacity>
+
+      <Text style={estilos.ou}>OU</Text>
 
       <TouchableOpacity
         onPress={() => {
@@ -56,7 +63,7 @@ export default function Login({navigation}){
 
         style={estilos.botao}
       >
-        <Text>Registrar-se</Text>
+        <Text style={estilos.textoBotao}>REGISTRE-SE</Text>
       </TouchableOpacity>
     </View>
   )

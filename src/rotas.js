@@ -13,7 +13,9 @@ import Administracao from './GlobalContext/Telas/Administracao';
 import Adicionar from './GlobalContext/Telas/Administracao/Adicionar';
 import Produtos from './GlobalContext/Telas/Produtos';
 import DetalhesProdutos from './GlobalContext/Telas/Produtos/Detalhes';
-
+import DetalhesCompras from './GlobalContext/Telas/Compras/DetalhesCompras';
+import StatusCompra from './GlobalContext/Telas/Administracao/StatusCompra';
+import ComprasStatus from './GlobalContext/Telas/Administracao/StatusCompra/ComprasStatus';
 export default function Rotas() {
   return (
     <NavigationContainer>
@@ -54,6 +56,18 @@ export default function Rotas() {
 
         <Tab.Screen name="Compras" options={{ headerShown: false }}
         component={Compras}
+        />
+
+        <Tab.Screen name="DetalhesCompras" options={{ headerShown: false }}
+        component={DetalhesCompras}
+        />
+
+        <Tab.Screen name="StatusCompra" options={{ headerShown: false }}
+        component={StatusCompra}
+        />
+
+        <Tab.Screen name="ComprasStatus" options={{ headerShown: false }}
+        component={ComprasStatus}
         />
 
       </Tab.Navigator>

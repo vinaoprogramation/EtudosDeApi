@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Text, TouchableOpacity, View, FlatList, Image } from 'react-native';
-import estilos from "./estilos";
-import useCompras from "../../useCompras";
-import useUsuarios from "../../useUsuarios";
 
-export default function Compras({ navigation }) {
+import { Text, View, TouchableOpacity, FlatList, Image } from "react-native";
+
+import estilos from "./estilos";
+
+import useCompras from "../../../useCompras";
+import useUsuarios from "../../../useUsuarios";
+
+export default function StatusCompra({ navigation }) {
   const compras = useCompras((state) => state.compras);
   const carregarCompras = useCompras((state) => state.carregarCompras);
   const usuario = useUsuarios((state) => (state.usuario))
@@ -30,12 +33,12 @@ export default function Compras({ navigation }) {
       <View>
         <Text style={estilos.texto}>Nada Patrão</Text>
         <TouchableOpacity
-        onPress={() => { navigation.goBack(); }}
-        style={estilos.botao}
-      >
-        <Text>Voltar</Text>
-      </TouchableOpacity>
-        </View>
+          onPress={() => { navigation.goBack(); }}
+          style={estilos.botao}
+        >
+          <Text>Voltar</Text>
+        </TouchableOpacity>
+      </View>
     )
   }
   else {
@@ -49,13 +52,13 @@ export default function Compras({ navigation }) {
           renderItem={({ item }) => (
             <View>
               <TouchableOpacity
-                onPress={() => { navigation.navigate('DetalhesCompras', item); }}
+                onPress={() => { navigation.navigate('ComprasStatus', item); }}
                 style={estilos.compras}
               >
                 <View>
                   <Image source={{ uri: item.imagem }} style={estilos.imagem} />
                 </View>
-                
+
                 <View style={estilos.informacoes}>
                   <Text style={estilos.informacoesTexto}>{item.nome}</Text>
                   <Text style={estilos.informacoesTexto}>R${item.valor}</Text>

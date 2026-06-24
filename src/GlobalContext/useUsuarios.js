@@ -1,6 +1,7 @@
 import {create} from "zustand"
 
 import { API } from "../../servidor/api";
+import Login from "./Telas/Login";
 
 const useUsuarios = create((set, get) => ({
     registrado: false,
@@ -61,6 +62,10 @@ const useUsuarios = create((set, get) => ({
       console.log("Erro ao logar:", erro);
     }
   },
+
+  sair: async() => {
+    set ({logado: false})
+  }
 }
 )
 );

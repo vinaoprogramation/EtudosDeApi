@@ -14,7 +14,7 @@ const estilos = StyleSheet.create({
       elevation: 5,
       borderRadius: 5,
       width: '70%',
-      marginBottom: 20
+      marginVertical: 5
     },
     input:{
       backgroundColor: '#ff7070',
@@ -38,24 +38,7 @@ const estilos = StyleSheet.create({
       textAlign: 'left',
       marginLeft: 30,
       marginVertical: 5
-    },
-    imagem:{
-      width: 320,
-      height: 320,
-    },
-    produtos:{
-      margin: 'auto',
-      marginVertical: 10,
-      borderRadius: 5,
-      elevation: 5,
-      backgroundColor: 'white',
-      paddingHorizontal: 10,
-      paddingVertical: 10
-    },
-    fundo:{
-      flex: 1
-    },
-
+    }
 });
 
 export default estilos;

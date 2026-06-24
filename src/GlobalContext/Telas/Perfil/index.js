@@ -6,22 +6,28 @@ import estilos from "./estilos";
 
 import useUsuarios from "../../useUsuarios";
 
-export default function Perfil({navigation}){
+export default function Perfil({ navigation }) {
   const usuario = useUsuarios((state) => (state.usuario))
   const nome = usuario.nome
   const email = usuario.email
   const cidade = usuario.cidade
   const id = usuario.id
-  return(
-    <View>
-    <Text style={estilos.texto}>Perfil</Text>
+  return (
+    <View style={estilos.fundo}>
 
-    <View style={estilos.informacoes}>
-      <Text style={estilos.informacoesTexto}>Bem vindo {nome}</Text>
-      <Text style={estilos.informacoesTexto}>email: {email}</Text>
-      <Text style={estilos.informacoesTexto}>Cidade: {cidade}</Text>
-      <Text style={estilos.informacoesTexto}>Id: {id}</Text>
-    </View>
+      <View>
+        <Text style={estilos.saudacao}>Bem vindo!</Text>
+        <Text style={estilos.nome}>{nome}</Text>
+
+        <View>
+          <Text style={estilos.informacoesPessoais}>Informações Pessoais</Text>
+          <Text style={estilos.informacoesTexto}>Email</Text>
+          <Text style={estilos.informacoes}>{email}</Text>
+
+        </View>
+        <Text style={estilos.informacoesTexto}>Cidade:</Text>
+        <Text style={estilos.informacoes}>{cidade}</Text>
+      </View>
 
 
       <TouchableOpacity
@@ -31,9 +37,9 @@ export default function Perfil({navigation}){
 
         style={estilos.botao}
       >
-        <Text>Voltar</Text>
+        <Text style={estilos.textoBotao}>VOLTAR</Text>
       </TouchableOpacity>
     </View>
-    
+
   )
 };

@@ -1,7 +1,8 @@
 import React,{useState, useEffect} from "react";
-import { Text, View, TouchableOpacity, TextInput } from "react-native";
+import { Text, View, TouchableOpacity, TextInput, Image } from "react-native";
 import estilos from "./estilos";
 import useUsuarios from "../../useUsuarios";
+import logo from "../../../../assets/logo.png"
 
 
 export default function Registro({navigation}){
@@ -14,6 +15,8 @@ export default function Registro({navigation}){
   const fazerLogin = useUsuarios((state) => state.fazerLogin)
   const registrado = useUsuarios((state) => state.registrado)
   const logado = useUsuarios((state) => state.logado)
+
+  
 
   useEffect(() => {
     if(registrado){
@@ -29,32 +32,35 @@ export default function Registro({navigation}){
   return(
 
 
-    <View>
-      <Text style={estilos.texto}>Registrar</Text>
+    <View style={estilos.fundo}>
+      <Image
+      source={logo}
+      style={estilos.imagem}
+      />
 
       <TextInput
-        placeholder="Nome"
+        placeholder="Exemplo da Silva"
         value={nome}
         onChangeText={setNome}
         style={estilos.input}
       />
 
       <TextInput
-        placeholder="Email"
+        placeholder="exemplo@gmail.com"
         value={email}
         onChangeText={setEmail}
         style={estilos.input}
       />
 
       <TextInput
-        placeholder="Senha"
+        placeholder="senhaExemplo@123"
         value={senha}
         onChangeText={setSenha}
         style={estilos.input}
       />
 
       <TextInput
-        placeholder="Cidade"
+        placeholder="São Exemplo"
         value={cidade}
         onChangeText={setCidade}
         style={estilos.input}
@@ -69,7 +75,7 @@ export default function Registro({navigation}){
 
         style={estilos.botao}
       >
-        <Text>Entrar</Text>
+        <Text style={estilos.textoBotao}>ENTRAR</Text>
       </TouchableOpacity>
     </View>
   )

@@ -66,18 +66,18 @@ app.post("/usuarios/login", (req, res) => {
       const senhaCorreta = (Number(senha) === resultados[0].senha);
       const usuario = resultados[0];
 
-           if (!senhaCorreta) {
+      if (!senhaCorreta) {
         return res.status(401).json({ erro: "Senha inválida." });
       }
 
       console.log("Logado");
 
-      return res.status(200).json({ 
-        logado: true, 
+      return res.status(200).json({
+        logado: true,
         usuario: {
-          id: usuario.id, 
-          nome: usuario.nome, 
-          email: usuario.email, 
+          id: usuario.id,
+          nome: usuario.nome,
+          email: usuario.email,
           cidade: usuario.cidade
         }
       });
@@ -128,6 +128,7 @@ app.post("/produtos", (req, res) => {
 
 // MÉTODOS DE ADIÇÃO E BUSCA DA TABELA compras
 
+//ADIÇÃO
 app.post("/compras", (req, res) => {
   const { id_usuario, id_produto } = req.body;
 
@@ -145,11 +146,11 @@ app.post("/compras", (req, res) => {
   });
 });
 
-
+//BUSCA
 app.get("/compras/:id_usuario", (req, res) => {
-  const id = req.params.id_usuario; 
+  const id = req.params.id_usuario;
 
-  const sql = "SELECT c.id_compra, u.nome, p.nome, p.valor FROM compras c INNER JOIN usuarios u ON c.id_usuario = u.id INNER JOIN produtos p ON c.id_produto = p.id WHERE c.id_usuario = ?";
+  const sql = "SELECT c.id_compra, c.status, u.nome, p.nome, p.valor, p.imagem, p.descricao FROM compras c INNER JOIN usuarios u ON c.id_usuario = u.id INNER JOIN produtos p ON c.id_produto = p.id WHERE c.id_usuario = ?";
 
   conexao.query(sql, [id], (erro, resultado) => {
     if (erro) {
@@ -158,6 +159,35 @@ app.get("/compras/:id_usuario", (req, res) => {
 
     res.json(resultado);
   });
+
+//ALTERAÇÃO(STATUS)
+  app.put("/compras/:id_compra", (req, res) => {
+    const id_compra = req.params.id_compra; 
+    const { novo_status } = req.body;     
+
+    if (!novo_status) {
+      return res.status(400).json({ erro: "O novo status é obrigatório." });
+    }
+
+    const sql = "UPDATE compras SET status = ? WHERE id_compra = ?";
+
+    
+    conexao.query(sql, [novo_status, id_compra], (erro, resultado) => {
+      if (erro) {
+        return res.status(500).json({
+          mensagem: "Erro ao atualizar o status da compra",
+          erro: erro.message
+        });
+      }
+
+      if (resultado.affectedRows === 0) {
+        return res.status(404).json({ mensagem: "Compra não encontrada." });
+      }
+
+      res.json({ mensagem: "Status da compra atualizado com sucesso!" });
+    });
+  });
+
 });
 
 

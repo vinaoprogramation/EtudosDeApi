@@ -94,6 +94,27 @@ const useCompras = create((set, get) => ({
     
   },
 
+  atualizaStatusCompra: async (id_compra, novo_status) =>{
+    try {
+      const resposta = await fetch(`${API}/compras/${id_compra}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          novo_status,
+          id_compra,
+        })
+      });
+
+      const dados = await resposta.json();
+      console.log(dados);
+      return dados;
+    } catch (erro) {
+      console.log("Erro ao alterar status:", erro);
+    }
+  },
+
 
 }
 )

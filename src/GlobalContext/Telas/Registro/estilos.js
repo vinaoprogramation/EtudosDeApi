@@ -9,22 +9,59 @@ const estilos = StyleSheet.create({
     },
     botao:{
       padding: 10,
-      backgroundColor: "#bebebe",
+      backgroundColor: "#86e7b7",
       marginHorizontal: 'auto',
       elevation: 5,
-      borderRadius: 5
+      borderRadius: 5,
+      width: '70%',
+      marginVertical: 5,
+      textAlign: 'center'
     },
     input:{
-      backgroundColor: '#ff7070',
-      borderWidth: 0.5,
-      marginVertical: 3,
-      width: '80%',
+      backgroundColor: 'rgb(211, 255, 219)',
+      marginBottom: 15,
+      width: '95%',
       marginHorizontal: 'auto',
       borderRadius: 5,
-      elevation: 2,
+      height: 50,
+      fontSize: 17,
+      borderWidth: 0.1,
+      borderColor: 'white',
       
+    },
+    informacoes:{
+      backgroundColor: "#ffabab",
+      width: '98%',
+      marginHorizontal: 'auto',
+      justifyContent: 'center',
+      alignItens: 'middle'
+    },
+    informacoesTexto:{
+      fontSize: 20,
+      textAlign: 'left',
+      marginLeft: 30,
+      marginVertical: 10
+    },
+    imagem:{
+      width: 400,
+      height: 400,
+      marginLeft: -20,
+      marginTop: -50
+    },
+    fundo:{
+      backgroundColor: '#00bf63',
+      flex: 1
+    },
+    ou:{
+      fontSize: 20,
+      textAlign: 'center',
+      color: '#ffffff',
+      fontWeight: 'bold',
+    },
+    textoBotao:{
+      textAlign: 'center',
+      fontWeight: 'bold'
     }
-
 });
 
 export default estilos;
