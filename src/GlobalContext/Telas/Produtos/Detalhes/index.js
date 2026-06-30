@@ -13,6 +13,7 @@ export default function DetalhesProdutos({ navigation, route }) {
   const item = route.params
   const usuario = useUsuarios((state) => state.usuario)
   const realizaCompra = useCompras((state) => state.realizaCompra)
+  const deletaProduto = useCompras((state) => state.deletaProduto)
 
     const [compraFeita, setCompraFeita] = useState(false);
     
@@ -24,7 +25,7 @@ export default function DetalhesProdutos({ navigation, route }) {
       <View style={estilos.produtos}>
         <Image source={{ uri: item.imagem }} style={estilos.imagem} />
         <Text style={estilos.informacoesTexto}>{item.nome}</Text>
-        <Text style={estilos.informacoesTexto}>Valor: {item.valor},00R$</Text>
+        <Text style={estilos.informacoesTexto}>Valor: {item.valor}R$</Text>
         <Text style={estilos.informacoesTexto}>Cor: {item.cor}</Text>
         <Text style={estilos.informacoesTexto}>Descrição: {item.descricao}</Text>
       </View>
@@ -41,6 +42,25 @@ export default function DetalhesProdutos({ navigation, route }) {
         <Text>Comprar</Text>
 
       </TouchableOpacity>
+
+
+
+
+      <TouchableOpacity
+        onPress={() => {
+          deletaProduto(item.id);
+        }}
+
+        style={estilos.botao}
+      >
+
+        <Text>Deletar</Text>
+
+      </TouchableOpacity>
+
+
+
+      
 
       <TouchableOpacity
         onPress={() => {

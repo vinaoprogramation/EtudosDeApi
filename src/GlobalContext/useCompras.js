@@ -9,6 +9,7 @@ const useCompras = create((set, get) => ({
     //FUNÇÕES RELACIONADAS A PRODUTOS
 
     criarProduto: async (nome, valor, descricao, imagem, cor) =>{
+      valor = parseFloat(valor.replace(',','.'));
     try {
       const resposta = await fetch(`${API}/produtos`, {
         method: "POST",
@@ -50,6 +51,26 @@ const useCompras = create((set, get) => ({
     }
     
   },
+
+  deletaProduto: async (id) =>{
+    try {
+      const resposta = await fetch(`${API}/produtos/${id}`, {
+        method: "DELETE",
+      });
+  
+      if (resposta.ok) {
+        await carregarProdutos(); 
+      }
+  
+      const dados = await resposta.json();
+  
+      
+      return dados;
+    } catch (erro) {
+      console.log("Erro ao deletar produto:", erro);
+    }
+  },
+
 
 
   //FUNÇÕES RELACIONADAS A COMPRAS

@@ -1,61 +1,74 @@
-import { StyleSheet } from "react-native"
+import { StyleSheet, Dimensions } from "react-native";
+
+// Pega a largura da tela para ajudar nos cálculos se necessário
+const { width } = Dimensions.get('window');
 
 const estilos = StyleSheet.create({
-    texto:{
-      fontSize: 20,
-      textAlign: 'center',
-      color: 'black',
-      marginTop: 20
-    },
-    botao:{
-      padding: 10,
-      backgroundColor: "#bebebe",
-      marginHorizontal: 'auto',
-      elevation: 5,
-      borderRadius: 5,
-      width: '70%',
-      marginBottom: 100
-    },
-    input:{
-      backgroundColor: '#ff7070',
-      borderWidth: 0.5,
-      marginVertical: 3,
-      width: '80%',
-      marginHorizontal: 'auto',
-      borderRadius: 5,
-      elevation: 2,
-      
-    },
-    informacoes:{
-      backgroundColor: "#ffabab",
-      width: '98%',
-      marginHorizontal: 'auto',
-      justifyContent: 'center',
-      alignItens: 'middle'
-    },
-    informacoesTexto:{
-      fontSize: 20,
-      textAlign: 'left',
-      marginLeft: 30,
-      marginVertical: 5
-    },
-    imagem:{
-      width:200,
-      height: 200
-    },
-    produtos:{
-      margin: 'auto',
-      marginVertical: 10,
-      borderRadius: 5,
-      elevation: 5,
-      backgroundColor: 'white',
-      paddingHorizontal: 10,
-      paddingVertical: 10
-    },
-    fundo:{
-      flex: 1
-    },
-
+  fundo: {
+    flex: 1,
+    backgroundColor: '#00bf63',
+  },
+  topo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderBottomWidth: 0.2,
+    borderBottomColor: 'rgba(255,255,255,0.3)',
+    elevation: 1,
+    padding: 10,
+    marginBottom: 10,
+  },
+  texto: {
+    fontSize: 22,
+    textAlign: 'center',
+    color: 'white',
+    flex: 1, 
+  },
+  listaProdutos: {
+    paddingHorizontal: 8, 
+  },
+  produtos: {
+    flex: 1, 
+    backgroundColor: 'white',
+    borderRadius: 8,
+    elevation: 4,
+    margin: 6, 
+    padding: 8,
+  },
+  produto: {
+    width: '100%',
+  },
+  divImagem: {
+    width: '100%',
+    height: 110, 
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 15
+  },
+  imagem: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'contain',
+    borderRadius: 15
+  },
+  grupoDetalhes: {
+    marginTop: 8,
+    alignItems: 'center',
+  },
+  detalhes: {
+    fontSize: 14,
+    textAlign: 'center',
+    color: '#333',
+  },
+  botao: {
+    padding: 12,
+    backgroundColor: "#bebebe",
+    alignSelf: 'center',
+    elevation: 3,
+    borderRadius: 5,
+    width: '70%',
+    marginTop: 20,
+    marginBottom: 50,
+  },
 });
 
 export default estilos;

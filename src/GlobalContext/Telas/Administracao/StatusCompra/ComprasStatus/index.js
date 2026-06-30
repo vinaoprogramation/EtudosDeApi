@@ -39,6 +39,16 @@ export default function ComprasStatus({navigation, route}){
       >
         <Text>Alterar Status</Text>
       </TouchableOpacity>
+
+
+
+      <TouchableOpacity
+        onPress={() => { navigation.goBack(); }}
+        style={estilos.botao}
+      >
+        <Text>Voltar</Text>
+      </TouchableOpacity>
+      
     </View>
   )
 }

@@ -14,7 +14,7 @@ const estilos = StyleSheet.create({
     elevation: 5,
     borderRadius: 5,
     width: '70%',
-    marginVertical: 5,
+    marginVertical: 20,
     textAlign: 'center'
   },
   input: {

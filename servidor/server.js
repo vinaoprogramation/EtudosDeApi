@@ -22,7 +22,7 @@ app.get("/usuarios", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
+app.listen(3002, () => {
   console.log("Servidor rodando na porta 3000");
 });
 
@@ -63,7 +63,7 @@ app.post("/usuarios/login", (req, res) => {
         return res.status(401).json({ erro: "Usuário não encontrado." });
       }
 
-      const senhaCorreta = (Number(senha) === resultados[0].senha);
+      const senhaCorreta = (senha) === resultados[0].senha;
       const usuario = resultados[0];
 
       if (!senhaCorreta) {
@@ -122,6 +122,26 @@ app.post("/produtos", (req, res) => {
       id: resultado.insertId
     });
   });
+});
+
+
+
+
+
+app.delete("/produtos/:id", (req, res) => {
+  
+  const id = req.params.id;
+
+  const sql = "DELETE FROM produtos WHERE id = ?";
+
+  conexao.query(sql, [id], (erro) => {
+    if (erro) {
+      return res.status(500).json(erro);
+    }
+
+    res.send("Filme removido");
+  });
+
 });
 
 

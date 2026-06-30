@@ -78,6 +78,13 @@ export default function Adicionar({ navigation }) {
         style={estilos.input}
       />
 
+      <TextInput
+        placeholder="Imagem"
+        value={imagem}
+        onChangeText={setImagem}
+        style={estilos.input}
+      />
+
       <Button title="Selecionar imagem da Galeria" onPress={pegarImagem} />
 
 
